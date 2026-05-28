@@ -19,10 +19,11 @@ const server= http.createServer(
      app
 );
 
+const origin=["http://localhost:5173","https://vingo-sozm.onrender.com","https://vingo-frontend-n7hr.onrender.com"]
 
 const io=new Server(server,{
        cors:{
-              origin:"http://localhost:5173",
+              origin: origin,
               credentials:true,
               methods:['POST',"GET"]
        }
@@ -38,7 +39,8 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors(
        {
-              origin: "http://localhost:5173",
+              
+              origin: origin,
               credentials: true
 
        }))
