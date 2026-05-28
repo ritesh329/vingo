@@ -76,6 +76,7 @@ export const signIn = async (req, res) => {
         email: user.email,
         mobileNo: user.mobileNo,
         role: user.role,
+        token
       },
     });
   } catch (err) {
