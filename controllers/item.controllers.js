@@ -18,7 +18,7 @@ export const addItem = async (req, res) => {
 
     // ✅ पहले image upload करो
     if (req.file) {
-      uploadedImage = await uploadOnCloudinary(req.file.path);
+      uploadedImage = await uploadOnCloudinary(req.file.buffer);
       if (!uploadedImage?.url) {
         return res.status(400).json({ error: "Image upload failed" });
       }
@@ -62,7 +62,7 @@ export const editItem = async (req, res) => {
     let updateData = { name, category, Foodtype, price };
 
     if (req.file) {
-      const uploadedImage = await uploadOnCloudinary(req.file.path);
+      const uploadedImage = await uploadOnCloudinary(req.file.buffer);
       updateData.image = uploadedImage?.url;
     }
 
